@@ -210,29 +210,33 @@ body {
           <p>Enter your personal details and start journey with us</p>
         </div>
         <div class="green-bg">
-          <button type="button" class="green-button">sign in</button>
+          <a href="userlogin.php"><button type="button" class="green-button">sign in</button></a>
         </div>
-        <form action="" class="sing-up-form">
+        <form action="register.php" method="post" class="sing-up-form">
           <h1>create account</h1>
            
           <p> use your email for registration</p>
           <div class="input-group">
             <i class="fa-solid fa-user"></i>
-            <input type="text" class="user" placeholder="user" />
+            <input type="text" class="user" name="name" placeholder="user" />
           </div>
           <div class="input-group">
             <i class="fa-regular fa-envelope"></i>
-            <input type="email" placeholder="example@gmail.com" class="email" />
+            <input type="number" placeholder="age" name="age" class="email" />
+          </div>
+          <div class="input-group">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="text" placeholder="address" name="address" class="email" />
           </div>
           <div class="input-group">
             <i class="fa fa-phone" aria-hidden="true"></i>
-            <input type="phone number" placeholder="+91 xxxxxxxxxx" class="phone number" />
+            <input type="phone number" placeholder="+91 xxxxxxxxxx" name="phno" class="phone number" />
           </div>
           <div class="input-group">
             <i class="fa-solid fa-lock"></i>
-            <input type="password" placeholder="password" />
+            <input type="password" name="psw" placeholder="password" />
           </div>
-          <button type="button">sign up</button>
+          <button type="submit" value="submit">sign up</button>
         </form>
       </div>
     </div>

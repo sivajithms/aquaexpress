@@ -1,3 +1,8 @@
+<?php
+include '../util/connection.php';
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,23 +31,45 @@
 </head>
   <body>
     <div class="main">
-        <form >
+        <form method="post" action="php/add-boat.php" >
           <legend>Enter boat details </legend>
           <div class="mb-3">
             <label for="" class="form-label">Name </label>
-            <input type="text" id="" class="form-control form" placeholder="enter name">
+            <input type="text" id="" class="form-control form" placeholder="enter name" name="name">
           </div>
           <div class="mb-3">
             <label for="disabledSelect" class="form-label">origin </label>
-            <select id="disabledSelect" class="form-select form">
-              <option>Disabled select</option>
+            <select " class="form-select form" name="origin">
+            <?php
+            $query = "SELECT * FROM routes;";
+                $result = mysqli_query($conn,$query) ; 
+                    
+                while ($dl = mysqli_fetch_array($result)){ 	
+                    
+                    echo'<option value=' . $dl["place"] .  ' placeholder="enter name">' . $dl["place"] . '</option> ';
+
+
+                }
+                
+            ?>
             </select>
             <label for="disabledSelect" class="form-label">destination </label>
-            <select id="disabledSelect" class="form-select form">
-              <option>Disabled select</option>
+            <select id="disabledSelect" class="form-select form" name="destination">
+            <?php
+            $query = "SELECT * FROM routes;";
+                $result = mysqli_query($conn,$query) ; 
+                    
+                while ($dl = mysqli_fetch_array($result)){ 	
+                    
+                    echo'<option value=' . $dl["place"] .  ' placeholder="enter name">' . $dl["place"] . '</option> ';
+
+
+                }
+                
+            ?>
             </select>
             <label for="disabledTextInput" class="form-label">capacity </label>
-            <input type="number" id="disabledTextInput" class="form-control form" placeholder="  ">
+            <input type="number" id="disabledTextInput" class="form-control form" placeholder=" xx " name="capacity">
           </div>
           <div class="mb-3">
             <div class="form-check">

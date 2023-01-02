@@ -1,3 +1,8 @@
+<?php
+session_start();
+include './util/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>AquaExpress</title>
   <style>
     * {
       margin: 0;
@@ -155,14 +160,21 @@
             <li><a href="#">your tickets</a></li>
             <li><a href="#">Locations</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Registration</a></li>
+            <li><a href="signup.php">Registration</a></li>
           </ul>
         </div>
       </div>
       <div class="header">
         <h1>BOOK YOUR BOAT TICKETS</h1>
         <!-- <p>New area / Future City</p> -->
-        <button type="button">BOOK NOW</button>
+        <?php
+        if(!isset($_SESSION['user_id'])){
+       echo'<button><a type="button" href="signup.php">BOOK NOW</a></button>';
+        }else{
+          echo'<button><a type="button" href="userlogin.php">BOOK NOW</a></button>';
+        }
+        ?>
+       
       </div>
     </div>
   </div>
