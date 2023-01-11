@@ -72,12 +72,33 @@ include '../util/connection.php';
             <input type="number" id="disabledTextInput" class="form-control form" placeholder=" xx " name="capacity">
           </div>
           <div class="mb-3">
+          <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">select time </label>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-              <label class="form-check-label" for="disabledFieldsetCheck">
-                Can't check this
-              </label>
+                10:00
+                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" >              
             </div>
+            <div class="form-check">
+                11:00
+                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" >              
+            </div>
+            <div class="form-check">
+                12:00
+                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" >              
+            </div>
+            <div class="form-check">
+                13:00
+                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" >              
+            </div>
+            <div class="form-check">
+                14:00
+                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" >              
+            </div>
+            <div class="form-check">
+                16:00
+                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" >              
+            </div>
+          </div>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
