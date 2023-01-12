@@ -18,5 +18,35 @@ include '../../util/connection.php';
 
     $query = "INSERT INTO boat(name, origin, destination, capacity)  VALUES ('$name', '$origin', '$destination ' ,'$capacity')";
     $result1 = mysqli_query($conn,$query); 
-    header('Location: ../index.html');
+    // header('Location: ../index.html');
     }
+
+    $time=$_POST['time'];
+    
+    $chk="";
+    
+$query="select boat_id from boat where name='$name';";
+$query1= mysqli_query($conn,$query);
+$id=mysqli_fetch_array($query1);
+echo $id[0];
+$id1=$id[0];
+echo '/n';
+
+for($i=0; $i<sizeof($time);$i++){
+    echo $i;
+    $j=$time[$i];
+    $query="insert into time_table(boat_id,starting_time) values($id1,'$j');";
+    $addtime=mysqli_query($conn,$query);
+
+}
+
+
+
+
+
+// foreach($time as $chk1){
+//     $chk =$chk1;
+//     $query="insert into time_table(boat_id,starting_time) values('$id','$chk');";
+//     $addtime=mysqli_query($conn,$query);
+// }
+
