@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2023 at 05:52 PM
+-- Generation Time: Jan 14, 2023 at 07:40 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -41,9 +41,10 @@ CREATE TABLE `boat` (
 --
 
 INSERT INTO `boat` (`name`, `boat_id`, `origin`, `destination`, `capacity`, `status`) VALUES
-('aq12', 2, 'marine', 'fort ', 22, 0),
-('dcsd', 3, 'marine', 'marine ', 33, 0),
-('a122', 4, 'fort', 'vypin ', 20, 0);
+('mdfk1', 34, 'marine', 'fort ', 20, 0),
+('mkv1', 35, 'marine', 'vypin ', 25, 0),
+('mdk1', 36, 'marine', 'kakkanad ', 30, 0),
+('fkmd1', 37, 'fort', 'marine ', 20, 0);
 
 -- --------------------------------------------------------
 
@@ -60,6 +61,15 @@ CREATE TABLE `booking_table` (
   `book_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `booking_table`
+--
+
+INSERT INTO `booking_table` (`seat_count`, `id`, `user_id`, `book_id`, `payment_id`, `book_date`) VALUES
+(6, 17, 2, 1, 7, '2023-01-19'),
+(1, 17, 2, 2, 8, '2023-01-19'),
+(5, 17, 2, 3, 9, '2023-01-19');
+
 -- --------------------------------------------------------
 
 --
@@ -71,6 +81,21 @@ CREATE TABLE `payment_table` (
   `payment_amount` int(5) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment_table`
+--
+
+INSERT INTO `payment_table` (`payment_id`, `payment_amount`, `date`) VALUES
+(1, 30, '2023-01-19'),
+(2, 30, '2023-01-19'),
+(3, 30, '2023-01-19'),
+(4, 30, '2023-01-19'),
+(5, 30, '2023-01-19'),
+(6, 60, '2023-01-19'),
+(7, 60, '2023-01-19'),
+(8, 10, '2023-01-19'),
+(9, 50, '2023-01-19');
 
 -- --------------------------------------------------------
 
@@ -101,8 +126,31 @@ INSERT INTO `routes` (`place`) VALUES
 CREATE TABLE `time_table` (
   `id` int(4) NOT NULL,
   `boat_id` int(11) NOT NULL,
-  `starting_time` int(2) NOT NULL
+  `starting_time` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `time_table`
+--
+
+INSERT INTO `time_table` (`id`, `boat_id`, `starting_time`) VALUES
+(15, 34, '10:00'),
+(16, 34, '11:00'),
+(17, 34, '12:00'),
+(18, 34, '13:00'),
+(19, 34, '14:00'),
+(20, 34, '16:00'),
+(21, 35, '10:00'),
+(22, 35, '12:00'),
+(23, 35, '16:00'),
+(24, 36, '11:00'),
+(25, 36, '13:00'),
+(26, 36, '16:00'),
+(27, 37, '10:00'),
+(28, 37, '11:00'),
+(29, 37, '12:00'),
+(30, 37, '13:00'),
+(31, 37, '14:00');
 
 -- --------------------------------------------------------
 
@@ -179,25 +227,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `boat`
 --
 ALTER TABLE `boat`
-  MODIFY `boat_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `boat_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `booking_table`
 --
 ALTER TABLE `booking_table`
-  MODIFY `book_id` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `book_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payment_table`
 --
 ALTER TABLE `payment_table`
-  MODIFY `payment_id` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `payment_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `time_table`
 --
 ALTER TABLE `time_table`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `users`
