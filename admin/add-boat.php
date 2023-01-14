@@ -96,7 +96,7 @@ include '../util/connection.php';
                     </div>
                     <div class="form-check">
                         16:00
-                        <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" VALUES="16:00" name="time">
+                        <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" value="16:00" name="time[]">
                     </div>
                 </div>
             </div>

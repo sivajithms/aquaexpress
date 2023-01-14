@@ -168,10 +168,10 @@ include './util/connection.php';
         <h1>BOOK YOUR BOAT TICKETS</h1>
         <!-- <p>New area / Future City</p> -->
         <?php
-        if(!isset($_SESSION['user_id'])){
-       echo'<button><a type="button" href="signup.php">BOOK NOW</a></button>';
+        if(isset($_SESSION['user_id'])){
+       echo'<a type="button" href="select-date.php"><button>BOOK NOW</button></a>';
         }else{
-          echo'<button><a type="button" href="userlogin.php">BOOK NOW</a></button>';
+          echo'<a type="button" href="userlogin.php"><button>BOOK NOW</button></a>';
         }
         ?>
        

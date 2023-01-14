@@ -18,12 +18,11 @@ include '../../util/connection.php';
 
     $query = "INSERT INTO boat(name, origin, destination, capacity)  VALUES ('$name', '$origin', '$destination ' ,'$capacity')";
     $result1 = mysqli_query($conn,$query); 
-    // header('Location: ../index.html');
     }
 
     $time=$_POST['time'];
-    
-    $chk="";
+
+    echo $time[0];  
     
 $query="select boat_id from boat where name='$name';";
 $query1= mysqli_query($conn,$query);
@@ -40,6 +39,7 @@ for($i=0; $i<sizeof($time);$i++){
 
 }
 
+    header('Location: ../index.html');
 
 
 
