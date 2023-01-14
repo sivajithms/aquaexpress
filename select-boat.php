@@ -35,7 +35,7 @@ include './util/connection.php';
         }
 
         .time{
-      margin-top: 9%;
+      margin-top: 7%;
       margin-left: 5%;
 
     }
@@ -45,9 +45,12 @@ include './util/connection.php';
 <body>
     <div>
         <?php
+        if(!isset($_POST['date'])){
+            header('location:select-date.php');
+        }
         $query = "SELECT * FROM boat";
         $result = mysqli_query($conn, $query);
-        
+        $dt = $_POST['date'];
         
         while($row = mysqli_fetch_array($result)){
             $id=$row['boat_id'];
@@ -69,15 +72,28 @@ include './util/connection.php';
         
         
         while($row1 = mysqli_fetch_array($result1)){
-                
+            $tid = $row1['id'];
+              $query2 = "select sum(seat_count) as smcnt from booking_table where book_date = '$dt' and id = $tid";
+             $result2 = mysqli_query($conn, $query2);
+             $rw = mysqli_fetch_array($result2);
+             $bCount = $rw['smcnt'];
+
+             $query3 = "select capacity from boat where boat_id = $id";
+             $result3 = mysqli_query($conn, $query3);
+             $rw1 = mysqli_fetch_array($result3);
+             $capacity = $rw1['capacity'];
+             $avSeat = $capacity - $bCount;
             ?> 
             
             
-                <a href=""><button type="button" class="btn btn-primary"><?php echo $row1['starting_time'];?></button></a>
+                <a href="select-seat-no.php?tid=<?php echo $tid; ?>&seat=<?php echo $avSeat ?>&date=<?php echo $dt ?>"><button type="button" class="btn btn-primary"><h6><?php echo $row1['starting_time'];?></h6><h6><?php echo $avSeat ?> seats </h6></button></a> 
+                
             
 
             <?php
-         }
+
+
+         }  
         ?>
         </div>
         </div>

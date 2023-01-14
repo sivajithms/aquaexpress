@@ -33,8 +33,8 @@
 <body>
     <div>
         <h2>select the date for your bookings</h2>
-        <form action="">
-        <input class="form-control" type="date" name="" id="">
+        <form action="select-boat.php" method="post">
+        <input class="form-control" type="date" name="date" id="">
         <button class="btn btn-primary"  type="submit">next</button>
         </form>
     </div>
