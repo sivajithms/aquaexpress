@@ -157,10 +157,23 @@ include './util/connection.php';
         <div class="menu">
           <ul class="navMenu">
             <li><a href="#">Home</a></li>
-            <li><a href="#">your tickets</a></li>
+            <li><a href="user-bookings.php">your tickets</a></li>
             <li><a href="#">Locations</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="signup.php">Registration</a></li>
+            <?php 
+            $id=$_SESSION['user_id'];  
+            $query = "SELECT * FROM users where user_id=$id";
+            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_array($result);
+            $user_name=$row['name'];
+            
+            if($_SESSION['user_id']){
+              
+            echo '<li><a href="signup.php">'; echo $user_name; echo '</a></li>';
+            }else{
+                echo '<li><a href="signup.php">"Register"</a></li>';
+            }
+            ?>
           </ul>
         </div>
       </div>

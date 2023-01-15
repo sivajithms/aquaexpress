@@ -1,3 +1,16 @@
+<?php
+session_start();
+include './util/connection.php';
+$id=$_SESSION['user_id'];
+$query = "SELECT * FROM booking_table where user_id=$id";
+$result = mysqli_query($conn, $query);
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +33,7 @@
         <thead>
             <tr>
                 <th> <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
-                    boat id
+                    boat name
                 </th>
                 <th>
                     <center>
@@ -45,22 +58,47 @@
             </tr>
         </thead>
         <tbody>
+            <?php
+            while($row = mysqli_fetch_array($result)){
+                $date=$row['book_date'];
+                $nos=$row['seat_count'];
+                $tid=$row['id'];
+                $query1 = "SELECT * FROM time_table where id=$tid";
+                $result1 = mysqli_query($conn, $query1);
+                $val=mysqli_fetch_array($result1);
+                $time=$val['starting_time'];
+                $bid=$val['boat_id'];
+                $query2 = "SELECT * FROM boat where boat_id=$bid";
+                $result2 = mysqli_query($conn, $query2);
+                $val2=mysqli_fetch_array($result2);
+                $bname=$val2['name'];
+                $origin=$val2['origin'];
+                $dest=$val2['destination'];
+                ?>
+            
+
             <tr>
                 <td>
-                    30
+                <?php echo $bname ?>
                 </td>
                 <td align="center">
-                    10rs
+                     <?php echo $date ?> 
                 </td>
                 
-                <td align="center">100rs</td>
+                <td align="center">
+                    <?php echo $time ?>
+            </td>
                 <td>
-                    30
+                <?php echo $origin ?> to <?php echo $dest ?>
                 </td>
                 <td>
-                    30
+                    <?php echo $nos ?>
                 </td>
             </tr>
+
+            <?php
+            }
+            ?>
             
         </tbody>
     </table>
