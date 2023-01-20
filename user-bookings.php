@@ -55,11 +55,22 @@ $result = mysqli_query($conn, $query);
                         no: of seats
                     </center>
                 </th>
+                <th>
+                    <center>
+                        book id
+                    </center>
+                </th>
+                <th>
+                    <center>
+                        view ticket
+                    </center>
+                </th>
             </tr>
         </thead>
         <tbody>
             <?php
             while($row = mysqli_fetch_array($result)){
+                $book_id=$row['book_id'];
                 $date=$row['book_date'];
                 $nos=$row['seat_count'];
                 $tid=$row['id'];
@@ -93,6 +104,18 @@ $result = mysqli_query($conn, $query);
                 </td>
                 <td>
                     <?php echo $nos ?>
+                </td>
+                <td>
+                    <?php echo $book_id ?>
+                </td>
+                <td>
+                    <form action="ticket.php" method="post">
+                    <input type="hidden" name="tid" value="<?php echo $tid ?>">
+        <input type="hidden" name="boat_id" value="<?php echo $bid ?>">
+        <input type="hidden" name="date" value="<?php echo $date ?>">
+        <input type="hidden" name="totalPass" value="<?php echo $nos ?>">
+        <button class="btn btn-primary" type="submit">view</button>
+                    </form>
                 </td>
             </tr>
 

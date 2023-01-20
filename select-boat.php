@@ -16,10 +16,11 @@ include './util/connection.php';
     <style>
         .template {
             margin: 5%;
-            height: 270px;
+            height: auto;
             background-color: rgb(212, 212, 217);
             width: 90%;
             border-radius: 30px;
+            padding-bottom: 1%;
         }
 
         .main-heading {
@@ -35,10 +36,14 @@ include './util/connection.php';
         }
 
         .time{
-      margin-top: 7%;
-      margin-left: 5%;
+            margin-top: 7%;
+            margin-left: 4%;
+            padding: 1%;
 
-    }
+        }
+        .btn{
+            margin-bottom: 1%;
+        }
     </style>
 </head>
 
@@ -61,8 +66,9 @@ include './util/connection.php';
                 <h1 class="main-heading"> <?php echo $row['name']; ?> </h1>
                 <h1 class="from route"><?php echo $row['origin']; ?> </h1>
                 <h1 class="arrow route">--</h1>
-                <h1 class="to route"> <?php echo $row['destination']; ?></h1>
+                <h1 class="to route"> <?php echo $row['destination']; ?></h1>            
                 <br>
+    
             </div>
 <div class="time">
             <?php
@@ -86,7 +92,7 @@ include './util/connection.php';
             ?> 
             
             
-                <a href="select-seat-no.php?tid=<?php echo $tid; ?>&seat=<?php echo $avSeat ?>&date=<?php echo $dt ?>"><button type="button" class="btn btn-primary"><h6><?php echo $row1['starting_time'];?></h6><h6><?php echo $avSeat ?> seats </h6></button></a> 
+                <a href="select-seat-no.php?tid=<?php echo $tid; ?>&seat=<?php echo $avSeat ?>&date=<?php echo $dt ?>"><button type="button" class="btn btn-primary"><h6>time: <br><?php echo $row1['starting_time'];?></h6><h6><?php echo $avSeat ?> seats </h6></button></a> 
                 
             
 
