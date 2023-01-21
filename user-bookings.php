@@ -55,11 +55,11 @@ $result = mysqli_query($conn, $query);
                         no: of seats
                     </center>
                 </th>
-                <th>
+                <!-- <th>
                     <center>
                         book id
                     </center>
-                </th>
+                </th> -->
                 <th>
                     <center>
                         view ticket
@@ -100,22 +100,28 @@ $result = mysqli_query($conn, $query);
                     <?php echo $time ?>
             </td>
                 <td>
+                    <center>
                 <?php echo $origin ?> to <?php echo $dest ?>
+                </center>
                 </td>
                 <td>
+                    <center>
                     <?php echo $nos ?>
+                    </center>
                 </td>
-                <td>
+                <!-- <td>
                     <?php echo $book_id ?>
-                </td>
+                </td> -->
                 <td>
+                    <center>
                     <form action="ticket.php" method="post">
-                    <input type="hidden" name="tid" value="<?php echo $tid ?>">
-        <input type="hidden" name="boat_id" value="<?php echo $bid ?>">
-        <input type="hidden" name="date" value="<?php echo $date ?>">
-        <input type="hidden" name="totalPass" value="<?php echo $nos ?>">
-        <button class="btn btn-primary" type="submit">view</button>
+                        <input type="hidden" name="tid" value="<?php echo $tid ?>">
+                        <input type="hidden" name="boat_id" value="<?php echo $bid ?>">
+                        <input type="hidden" name="date" value="<?php echo $date ?>">
+                        <input type="hidden" name="totalPass" value="<?php echo $nos ?>">
+                        <button class="btn btn-primary" type="submit">view</button>
                     </form>
+                    </center>
                 </td>
             </tr>
 

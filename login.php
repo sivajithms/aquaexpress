@@ -20,7 +20,7 @@ while($row=mysqli_fetch_array($query1)) {
     $user_pass = $row['password'];
     if($user_pass==$pswd){
        
-        //unset($_SESSION['user_id']);
+        unset($_SESSION['user_id']);
         $_SESSION['user_id'] = $row['user_id'];
         header("Location: ./index.php");
     }
