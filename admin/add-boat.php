@@ -35,7 +35,7 @@ include '../util/connection.php';
 
 <body>
     <div class="main">
-        <form method="post" action="php/add-boat.php">
+        <form method="post" action="php/add-boat.php" class="form-group">
             <legend>Enter boat details </legend>
             <div class="mb-3">
                 <label for="" class="form-label">Name </label>
@@ -69,7 +69,7 @@ include '../util/connection.php';
                     ?>
                 </select>
                 <label for="disabledTextInput" class="form-label">capacity </label>
-                <input type="number" id="disabledTextInput" class="form-control form" placeholder=" xx " name="capacity">
+                <input type="number" min="1" id="" class="form-control form " autocomplete="off" placeholder=" xx " name="capacity">
             </div>
             <div class="mb-3">
                 <div class="mb-3">
