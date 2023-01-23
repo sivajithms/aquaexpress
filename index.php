@@ -159,20 +159,30 @@ include './util/connection.php';
             <li><a href="#">Home</a></li>
             <li><a href="user-bookings.php">your tickets</a></li>
             <li><a href="#">Locations</a></li>
-            <li><a href="#">Contact</a></li>
+          <?php 
+          if($_SESSION['user_id']){
+            echo'<li><a href="logout.php">Logout</a></li>';
+          }else{
+            echo'<li><a href="userLogin.php">Login</a></li>';
+          }
+          ?>
             <?php 
+            if($_SESSION['user_id']){
             $id=$_SESSION['user_id'];  
             $query = "SELECT * FROM users where user_id=$id";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_array($result);
             $user_name=$row['name'];
             
-            if($_SESSION['user_id']){
+         
               
             echo '<li><a href="signup.php">'; echo $user_name; echo '</a></li>';
-            }else{
-                echo '<li><a href="signup.php">"Register"</a></li>';
-            }
+      
+            
+          }else{
+            echo '<li><a href="signup.php">Register</a></li>';
+
+          }
             ?>
           </ul>
         </div>

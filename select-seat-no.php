@@ -85,7 +85,7 @@ include './util/connection.php';
             
             <div class="form-group">
                 <label for="">Total # of Passenger:</label>
-                <input type="number" min="1" class="form-control" name="totalPass" plactreholder="Total # of Passenger" autocomplete="off">
+                <input type="number" min="1" MAX="<?php echo $seat ?>" class="form-control" name="totalPass" plactreholder="Total # of Passenger" autocomplete="off" required>
             </div>
 
 

@@ -124,7 +124,7 @@ $result = mysqli_query($conn, $query);
                     </td>
                     <td>
                         <center>
-                            <form action="deleteBookings.php" method="post" id="deletejs" onsubmit="confirmation()">
+                            <form action="deleteBookings.php" method="post" id="deletejs" onsubmit=" return confirmation()">
                             <input type="hidden" name="bookid" value="<?php echo $bookid ?>">
                             <button class="btn btn-danger" type="submit">delete</button>
                             </form>
@@ -144,8 +144,11 @@ $result = mysqli_query($conn, $query);
 function confirmation() {
     let text = "do you want to delete !\nEither OK or Cancel.";
   if (confirm(text) == true) {
-    document.getElementById('deletejs').submit();
-  } 
+    return true;
+    // document.getElementById('deletejs').submit();
+  } else{
+    return false;
+  }
   
 }
 

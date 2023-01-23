@@ -32,6 +32,7 @@ $id1=$id[0];
 echo '/n';
 
 for($i=0; $i<sizeof($time);$i++){
+    
     echo $i;
     $j=$time[$i];
     $query="insert into time_table(boat_id,starting_time) values($id1,'$j');";
