@@ -1,7 +1,7 @@
 <?php
 session_start();
 include './util/connection.php';
-
+unset($_SESSION['register_err']);
 ?>
 
 <!DOCTYPE html>
@@ -69,9 +69,8 @@ border-bottom-right-radius: .3rem;
                         </div>
 
                         <?php
-        if(!isset($_SESSION['login_err'])){
-        // echo " <p class='text-danger'>".$_SESSION['login_err']."</p>";
-        echo "error";
+        if(isset($_SESSION['login_err'])){
+         echo " <p class='text-danger'>".$_SESSION['login_err']."</p>";
         }
         ?>
                       

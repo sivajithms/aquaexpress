@@ -1,3 +1,4 @@
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Log In</title>
@@ -119,15 +120,54 @@ form .button:active {
 
 <nav><a href="#" class="focus">Log In</a></nav>
 
-<form>
+<form method="post" name="loginForm">
 
 	<h2>Admin Login</h2>
 
-	<input type="text" name="username" class="text-field" placeholder="Username" />
-    <input type="password" name="password" class="text-field" placeholder="Password" />
+	<input type="text" name="aname" class="text-field" placeholder="Username" />
+    <input type="password" name="pswd" class="text-field" placeholder="Password" />
     
-  <a href=""><input type="button"  class="button" value="Log In" /></a>
+<button class="btn " type="submit">Login</button>
 
 </form>
 
+<?php
+
+include '../util/connection.php';
+
+
+session_start();
+
+
+if(isset($_POST['aname'])){
+    
+    $aname = $_POST['aname'];
+    $pswd = $_POST['pswd'];
+
+	$query="select * from admin_login where admin_name='$aname'";
+
+	$result=mysqli_query($conn,$query);
+
+	
+if(mysqli_num_rows($result) > 0){
+
+	while($row=mysqli_fetch_array($result)) {
+		$admin_pass = $row['pswd'];
+		if($admin_pass==$pswd){
+			$_SESSION['admin_id']=$row['aid'];
+			
+			$_SESSION['admin_name']= $aname;
+		  echo'<script>
+		  window.location.href="./index.php"</script>';
+		}
+
+
+}
+
+}
+}
+
+?>
+
 </body>
+</html>

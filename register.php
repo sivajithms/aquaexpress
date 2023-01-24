@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include './util/connection.php';
 
     
@@ -15,7 +17,10 @@ include './util/connection.php';
     if(mysqli_num_rows($res) > 0){
 
         $error="user exist";
-        echo "$error";
+        $_SESSION['register_err']=$error;
+        echo'<script>
+        window.location.href="./signup.php"</script>';
+
     }else{
   //insertion to college table
   $query = "INSERT INTO users(name, phno, age, address,password)  VALUES ('$name', '$phno', '$age' ,'$address', '$password')";

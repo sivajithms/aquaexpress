@@ -1,12 +1,16 @@
 <?php
 session_start();
 include './util/connection.php';
+
+if(!isset($_SESSION['user_id'])){
+    echo'<script>window.location.href="./index.php"</script>';
+  }else{
 $id=$_SESSION['user_id'];
 $query = "SELECT * FROM booking_table where user_id=$id";
 $result = mysqli_query($conn, $query);
 
 
-
+  }
 
 ?>
 
@@ -29,6 +33,7 @@ $result = mysqli_query($conn, $query);
 </style>
 <body>
     <div class="main">
+        <a href="./index.php" class="btn btn-primary">Back</a>
     <table id="myTable-party" class="table table-bordered table-hover" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -69,64 +74,70 @@ $result = mysqli_query($conn, $query);
         </thead>
         <tbody>
             <?php
-            while($row = mysqli_fetch_array($result)){
-                $book_id=$row['book_id'];
-                $date=$row['book_date'];
-                $nos=$row['seat_count'];
-                $tid=$row['id'];
-                $query1 = "SELECT * FROM time_table where id=$tid";
-                $result1 = mysqli_query($conn, $query1);
-                $val=mysqli_fetch_array($result1);
-                $time=$val['starting_time'];
-                $bid=$val['boat_id'];
-                $query2 = "SELECT * FROM boat where boat_id=$bid";
-                $result2 = mysqli_query($conn, $query2);
-                $val2=mysqli_fetch_array($result2);
-                $bname=$val2['name'];
-                $origin=$val2['origin'];
-                $dest=$val2['destination'];
-                ?>
-            
 
-            <tr>
-                <td>
-                <?php echo $bname ?>
-                </td>
-                <td align="center">
-                     <?php echo $date ?> 
-                </td>
-                
-                <td align="center">
-                    <?php echo $time ?>
-            </td>
-                <td>
-                    <center>
-                <?php echo $origin ?> to <?php echo $dest ?>
-                </center>
-                </td>
-                <td>
-                    <center>
-                    <?php echo $nos ?>
-                    </center>
-                </td>
-                <!-- <td>
-                    <?php echo $book_id ?>
-                </td> -->
-                <td>
-                    <center>
-                    <form action="ticket.php" method="post">
-                        <input type="hidden" name="tid" value="<?php echo $tid ?>">
-                        <input type="hidden" name="boat_id" value="<?php echo $bid ?>">
-                        <input type="hidden" name="date" value="<?php echo $date ?>">
-                        <input type="hidden" name="totalPass" value="<?php echo $nos ?>">
-                        <button class="btn btn-primary" type="submit">view</button>
-                    </form>
-                    </center>
-                </td>
-            </tr>
+if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_array($result)){
+        $book_id=$row['book_id'];
+        $date=$row['book_date'];
+        $nos=$row['seat_count'];
+        $tid=$row['id'];
+        $query1 = "SELECT * FROM time_table where id=$tid";
+        $result1 = mysqli_query($conn, $query1);
+        $val=mysqli_fetch_array($result1);
+        $time=$val['starting_time'];
+        $bid=$val['boat_id'];
+        $query2 = "SELECT * FROM boat where boat_id=$bid";
+        $result2 = mysqli_query($conn, $query2);
+        $val2=mysqli_fetch_array($result2);
+        $bname=$val2['name'];
+        $origin=$val2['origin'];
+        $dest=$val2['destination'];
+        ?>
+    
 
-            <?php
-            }
+    <tr>
+        <td>
+        <?php echo $bname ?>
+        </td>
+        <td align="center">
+             <?php echo $date ?> 
+        </td>
+        
+        <td align="center">
+            <?php echo $time ?>
+    </td>
+        <td>
+            <center>
+        <?php echo $origin ?> to <?php echo $dest ?>
+        </center>
+        </td>
+        <td>
+            <center>
+            <?php echo $nos ?>
+            </center>
+        </td>
+        <!-- <td>
+            <?php echo $book_id ?>
+        </td> -->
+        <td>
+            <center>
+            <form action="ticket.php" method="post">
+                <input type="hidden" name="tid" value="<?php echo $tid ?>">
+                <input type="hidden" name="boat_id" value="<?php echo $bid ?>">
+                <input type="hidden" name="date" value="<?php echo $date ?>">
+                <input type="hidden" name="totalPass" value="<?php echo $nos ?>">
+                <button class="btn btn-primary" type="submit">view</button>
+            </form>
+            </center>
+        </td>
+    </tr>
+
+    <?php
+    }
+}else{
+echo"<p>No Booking Records</p>";
+}
+         
             ?>
             
         </tbody>

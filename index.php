@@ -1,6 +1,8 @@
 <?php
-session_start();
+  session_start();
 include './util/connection.php';
+unset($_SESSION['login_err']);
+unset($_SESSION['register_err']);
 ?>
 
 <!DOCTYPE html>
@@ -159,28 +161,28 @@ include './util/connection.php';
             <li><a href="#">Home</a></li>
             <li><a href="user-bookings.php">your tickets</a></li>
             <li><a href="#">Locations</a></li>
-          <?php 
-          if($_SESSION['user_id']){
+            
+
+<?php 
+        
+          
+          if(isset($_SESSION['user_id'])){
             echo'<li><a href="logout.php">Logout</a></li>';
           }else{
             echo'<li><a href="userLogin.php">Login</a></li>';
           }
           ?>
+
             <?php 
-            if($_SESSION['user_id']){
+            if(!isset($_SESSION['user_id'])){
+              echo '<li><a href="profile.php">Register</a></li>';
+          }else{
             $id=$_SESSION['user_id'];  
             $query = "SELECT * FROM users where user_id=$id";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_array($result);
             $user_name=$row['name'];
-            
-         
-              
             echo '<li><a href="signup.php">'; echo $user_name; echo '</a></li>';
-      
-            
-          }else{
-            echo '<li><a href="signup.php">Register</a></li>';
 
           }
             ?>

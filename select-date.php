@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_id'])){
+    echo'<script>window.location.href="./index.php"</script>';
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="js/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <style>
@@ -34,9 +42,46 @@
     <div>
         <h2>select the date for your bookings</h2>
         <form action="select-boat.php" method="post">
-        <input class="form-control" type="date" name="date" id="">
+        <input class="form-control" type="date" name="date" id="inputdate" required>
+        
         <button class="btn btn-primary"  type="submit">next</button>
         </form>
     </div>
+
+
+
+    
+    <script>
+
+        
+
+$(function(){
+    var dtToday = new Date();
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+     day = '0' + day.toString();
+     var minDate = year + '-' + month + '-' + day;
+     
+     var maxMonth;
+     var maxYear;
+     if(month===11){
+        maxMonth = '01';
+        maxYear = year + 1;
+     }else if(month === 12){
+        maxMonth = '02';
+        maxYear = year + 1;
+     }else{
+        maxMonth = dtToday.getMonth() + 2;
+        maxYear = year;
+     }
+    var maxDate = maxYear + '-' +maxMonth+ '-' + day;
+    $('#inputdate').attr('min', minDate);
+    $('#inputdate').attr('max', maxDate);
+});
+    </script>
 </body>
 </html>

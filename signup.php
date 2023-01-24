@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  unset($_SESSION['login_err']);
+ 
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -218,24 +223,31 @@ body {
           <p> use your email for registration</p>
           <div class="input-group">
             <i class="fa-solid fa-user"></i>
-            <input type="text" class="user" name="name" placeholder="user" />
+            <input type="text" class="user" name="name" placeholder="user" required/>
           </div>
           <div class="input-group">
             <i class="fa-regular fa-envelope"></i>
-            <input type="number" placeholder="age" name="age" class="email" />
+            <input type="number" placeholder="age" name="age" class="email" required/>
           </div>
           <div class="input-group">
             <i class="fa-regular fa-envelope"></i>
-            <input type="text" placeholder="address" name="address" class="email" />
+            <input type="text" placeholder="address" name="address" class="email" required/>
           </div>
           <div class="input-group">
             <i class="fa fa-phone" aria-hidden="true"></i>
-            <input type="phone number" placeholder="+91 xxxxxxxxxx" name="phno" class="phone number" />
+            <input type="phone number" placeholder="+91 xxxxxxxxxx" name="phno" class="phone number" required/>
           </div>
           <div class="input-group">
             <i class="fa-solid fa-lock"></i>
-            <input type="password" name="psw" placeholder="password" />
+            <input type="password" name="psw" placeholder="password" required/>
           </div>
+          <?php
+          
+          
+          if(isset($_SESSION['register_err'])){
+         echo " <p class='text-danger'>".$_SESSION['register_err']."</p>";
+        }
+        ?>
           <button type="submit" value="submit">sign up</button>
         </form>
       </div>
