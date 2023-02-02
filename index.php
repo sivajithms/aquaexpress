@@ -175,7 +175,7 @@ unset($_SESSION['register_err']);
 
             <?php 
             if(!isset($_SESSION['user_id'])){
-              echo '<li><a href="profile.php">Register</a></li>';
+              echo '<li><a href="signup.php">Register</a></li>';
           }else{
             $id=$_SESSION['user_id'];  
             $query = "SELECT * FROM users where user_id=$id";
