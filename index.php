@@ -182,7 +182,7 @@ unset($_SESSION['register_err']);
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_array($result);
             $user_name=$row['name'];
-            echo '<li><a href="signup.php">'; echo $user_name; echo '</a></li>';
+            echo '<li><a href="profile.php">'; echo $user_name; echo '</a></li>';
 
           }
             ?>

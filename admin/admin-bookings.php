@@ -26,6 +26,7 @@ $result = mysqli_query($conn, $query);
    
     
     <div class="main">
+        <a href="./index.php" class="btn btn-primary">Back</a>
         <table id="myTable-party" class="table table-bordered table-hover" cellspacing="0" width="100%">
             <thead>
                 <tr>
@@ -68,6 +69,9 @@ $result = mysqli_query($conn, $query);
             </thead>
             <tbody>
             <?php
+            if(mysqli_num_rows($result) < 1){
+                echo "zero bookings";
+            }
      while($row = mysqli_fetch_array($result)){
         $uid=$row['user_id'];
         $tid=$row['id'];

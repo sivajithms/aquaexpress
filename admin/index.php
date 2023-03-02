@@ -64,6 +64,10 @@ $maxbookings+=1;
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Login Screens:</h6>
                     <a class="collapse-item" href="add-boat.php">add boat</a>
+<<<<<<< HEAD
+=======
+                    <a class="collapse-item" href="add-route.php">add route</a>
+>>>>>>> 7289989c9768c5bb581b240e66f23d82c2d13c82
                 </div>
             </div>
         </li>
