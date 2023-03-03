@@ -5,6 +5,7 @@ session_start();
 if(!isset($_SESSION['user_id'])){
     echo'<script>window.location.href="./index.php"</script>';
   }
+// include './data/boat.php';
 ?>
 
 
@@ -25,32 +26,30 @@ if(!isset($_SESSION['user_id'])){
             width: 90%;
             border-radius: 30px;
             padding-bottom: 1%;
-            box-shadow: 0px 0px 10px #888888;
         }
+
         .main-heading {
-        margin-left: 5%;
-        margin-top: 7%;
-        font-size: 44px;
-        text-align: center;
-    }
-    
-    .route {
-        margin-left: 5%;
-        margin-top: 3%;
-        float: left;
-    }
+            margin-left: 5%;
+            margin-top: 7%;
+            font-size: 44px;
+        }
 
-    .time{
-        margin-top: 2%;
-        margin-left: 4%;
-        padding: 1%;
-        text-align: center;
-    }
-    .btn{
-        margin-bottom: 1%;
-    }
-</style>
+        .route {
+            margin-left: 5%;
+            margin-top: 3%;
+            float: left;
+        }
 
+        .time{
+            margin-top: 7%;
+            margin-left: 4%;
+            padding: 1%;
+
+        }
+        .btn{
+            margin-bottom: 1%;
+        }
+    </style>
 </head>
 
 <body>
@@ -68,13 +67,11 @@ if(!isset($_SESSION['user_id'])){
             ?> 
                     
         <div class="template">
-            <div class="col col-lg-12 ">
-                <h1 class="main-heading"> <?php echo  $row["name"] ;?> </h1>
-                <div class="d-flex justify-content-center">
+            <div class="col col-lg-12">
+                <h1 class="main-heading"> <?php echo $row['name']; ?> </h1>
                 <h1 class="from route"><?php echo $row['origin']; ?> </h1>
                 <h1 class="arrow route">--</h1>
-                <h1 class="to route"> <?php echo $row['destination']; ?></h1>    
-                </div>        
+                <h1 class="to route"> <?php echo $row['destination']; ?></h1>            
                 <br>
     
             </div>

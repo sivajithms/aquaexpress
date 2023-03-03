@@ -127,7 +127,7 @@ form .button:active {
 	<input type="text" name="aname" class="text-field" placeholder="Username" />
     <input type="password" name="pswd" class="text-field" placeholder="Password" />
     
-<button class="button" type="submit">Login</button>
+<button class="btn " type="submit">Login</button>
 
 </form>
 
