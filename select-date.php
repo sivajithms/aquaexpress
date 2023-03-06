@@ -63,25 +63,24 @@ $(function(){
     if(month < 10)
         month = '0' + month.toString();
     if(day < 10)
-     day = '0' + day.toString();
-     var minDate = year + '-' + month + '-' + day;
-     
-     var maxMonth;
-     var maxYear;
-     if(month===11){
-        maxMonth = '01';
-        maxYear = year + 1;
-     }else if(month === 12){
-        maxMonth = '02';
-        maxYear = year + 1;
-     }else{
-        maxMonth = dtToday.getMonth() + 2;
-        maxYear = year;
-     }
-    var maxDate = maxYear + '-' +maxMonth+ '-' + day;
+        day = '0' + day.toString();
+    var minDate = year + '-' + month + '-' + day;
+    
+    var maxDate = new Date(dtToday);
+    maxDate.setDate(maxDate.getDate() + 7);
+    var maxMonth = maxDate.getMonth() + 1;
+    var maxDay = maxDate.getDate();
+    var maxYear = maxDate.getFullYear();
+    if(maxMonth < 10)
+        maxMonth = '0' + maxMonth.toString();
+    if(maxDay < 10)
+        maxDay = '0' + maxDay.toString();
+    var maxDateStr = maxYear + '-' + maxMonth + '-' + maxDay;
+    
     $('#inputdate').attr('min', minDate);
-    $('#inputdate').attr('max', maxDate);
+    $('#inputdate').attr('max', maxDateStr);
 });
-    </script>
+
+</script>
 </body>
 </html>

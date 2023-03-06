@@ -1,3 +1,10 @@
+<?php
+include '../util/connection.php';
+
+
+session_start();
+?>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -133,11 +140,10 @@ form .button:active {
 
 <?php
 
-include '../util/connection.php';
 
 
-session_start();
-
+        
+        
 
 if(isset($_POST['aname'])){
     
@@ -160,7 +166,6 @@ if(mysqli_num_rows($result) > 0){
 		  echo'<script>
 		  window.location.href="./index.php"</script>';
 		}
-
 
 }
 
