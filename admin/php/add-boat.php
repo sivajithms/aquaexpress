@@ -40,7 +40,7 @@ for($i=0; $i<sizeof($time);$i++){
 
 }
 
-    header('Location: ../index.html');
+    header('Location: ../index.php');
 
 
 

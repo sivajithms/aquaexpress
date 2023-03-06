@@ -114,8 +114,8 @@ include '../util/connection.php';
         flag ++;
       }
     }
-    if (flag != 1) {
-      alert ("You must check one and only one checkbox!");
+    if (flag < 1) {
+      alert ("You must check at least one checkbox!");
       return false;
     }
     return true;
