@@ -122,6 +122,7 @@ Logout
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Boats</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $maxboat ?></div>
+                            <!-- <a href="view-boat.php"><button class="btn-primary btn">view</button></a> -->
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-ship fa-2x text-gray-300"></i>

@@ -99,7 +99,7 @@ unset($_SESSION['register_err']);
       border-color: white;
     }
 
-    .menu ul li:nth-child(5) a {
+    .menu ul li:nth-child(4) a {
       color: #fff200;
       border: 1px solid #fff200;
     }
@@ -158,9 +158,8 @@ unset($_SESSION['register_err']);
         </div>
         <div class="menu">
           <ul class="navMenu">
-            <li><a href="#">Home</a></li>
+            <li><a href="/aquaexpress">Home</a></li>
             <li><a href="user-bookings.php">your tickets</a></li>
-            <li><a href="#">Locations</a></li>
             
 
 <?php 
