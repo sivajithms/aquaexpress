@@ -103,7 +103,7 @@ if(!isset($_SESSION['user_id'])){
                 <h6>: <?php echo $date ?> </h6><br>
                 <h6>: <?php echo $time ?> </h6><br>
                 <h6>: <?php echo $nos ?> </h6><br>
-                <h6>: <?php echo $total ?> </h6><br>             
+                <h6>: <?php echo $total ?> rs</h6><br>             
             </div>
            
             <div>

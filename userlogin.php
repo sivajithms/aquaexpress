@@ -94,11 +94,8 @@ border-bottom-right-radius: .3rem;
                     <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                       <h4 class="mb-4">We are more than just a company</h4>
                       <p class="small mb-0">Hi there!
-                        Welcome to the aqva express Family!
-                        I am glad that you are reading this messsage. I will be happy to help you .
-                        As a thank you for joining us, I would like to give you a gift. 
-                        Get [link to some free resources] now!
-                        You will find there [useful thing #1], [useful thing #2], and my personal favorite—[useful thing #3].
+                        Welcome to the aqua express Family!
+                        We're here to help you with your boat ticket bookings. As a thank you for joining our family, we'd like to give you a special gift.
                         .</p>
                     </div>
                   </div>

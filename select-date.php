@@ -57,6 +57,7 @@ if(!isset($_SESSION['user_id'])){
 
 $(function(){
     var dtToday = new Date();
+    dtToday.setDate(dtToday.getDate() + 1);
     var month = dtToday.getMonth() + 1;
     var day = dtToday.getDate();
     var year = dtToday.getFullYear();

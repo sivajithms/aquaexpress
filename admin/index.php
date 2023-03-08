@@ -115,23 +115,26 @@ Logout
 <div class="container-fluid"><!-- Main Content -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
+  <a href="view-boat.php" style="text-decoration:none;">
             <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Boats</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $maxboat ?></div>
-                            <!-- <a href="view-boat.php"><button class="btn-primary btn">view</button></a> -->
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-ship fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Boats</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $maxboat ?></div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-ship fa-2x text-gray-300"></i>
+                </div>
                 </div>
             </div>
-        </div>
+            </div>
+  </a>
+</div>
+
         <div class="col-xl-3 col-md-6 mb-4">
+        <a href="admin-bookings.php" style="text-decoration:none;">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -145,8 +148,10 @@ Logout
                     </div>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-xl-3 col-md-6 mb-4">
+        <a href="user-details.php" style="text-decoration:none;">
             <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -164,6 +169,7 @@ Logout
                     </div>
                 </div>
             </div>
+            </a>
         </div>
     </div>
 </div>
@@ -172,9 +178,9 @@ Logout
 
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
-            <div class="container my-auto" >
+            <div class="container my-auto" style=" position: fixed;  bottom: 2rem;">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; AquaExpress 2019</span>
+                    <span>Copyright &copy; AquaExpress 2023</span>
                 </div>
             </div>
         </footer>

@@ -1,6 +1,6 @@
 <?php
 include '../util/connection.php';
-$query = "SELECT * FROM boat";
+$query = "SELECT * FROM users";
 $result = mysqli_query($conn, $query);  
 ?>
 
@@ -11,7 +11,7 @@ $result = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Table</title>
+    <title>user details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
@@ -72,31 +72,28 @@ $result = mysqli_query($conn, $query);
         <table id="myTable-party" class="table table-bordered table-hover" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>boat id</th>
-                    <th>Boat Name</th>
-                    <th>Origin</th>
-                    <th>Destination</th>
-                    <th>Capacity</th>
+                    <th>User Name</th>
+                    <th>age</th>
+                    <th>address</th>
+                    <th>phno</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 if(mysqli_num_rows($result) < 1){
-                    echo "<tr><td colspan='4' style='text-align:center;'>No boats found</td></tr>";
+                    echo "<tr><td colspan='4' style='text-align:center;'>No users found</td></tr>";
                 }
                 while($row = mysqli_fetch_array($result)){
-                    $bid = $row['boat_id'];
                     $name = $row['name'];
-                    $org = $row['origin'];
-                    $dest = $row['destination'];
-                    $capacity = $row['capacity'];
+                    $phno = $row['phno'];
+                    $age = $row['age'];
+                    $address = $row['address'];
                 ?>
                 <tr>
-                    <td><?php echo $bid ?></td>
                     <td><?php echo $name ?></td>
-                    <td><?php echo $org ?></td>
-                    <td><?php echo $dest ?></td>
-                    <td><?php echo $capacity ?></td>
+                    <td><?php echo $age ?></td>
+                    <td><?php echo $address ?></td>
+                    <td><?php echo $phno ?></td>
                 </tr>
                 <?php
                 }

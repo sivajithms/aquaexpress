@@ -137,11 +137,12 @@ body {
 /* Main */
 .main {
     margin-top: 2%;
-    margin-left: 29%;
+    margin-left: 20%;
     font-size: 28px;
     padding: 0 10px;
     width: 58%;
 }
+
 
 .main h2 {
     color: #333;
@@ -229,12 +230,12 @@ $age=$row['age'];
                             <td><?php  echo $user_name; ?></td>
                         </tr>
                         <tr>
-                            <td>age</td>
+                            <td>Age</td>
                             <td>:</td>
                             <td><?php  echo $age; ?></td>
                         </tr>
                         <tr>
-                            <td>phno</td>
+                            <td>Phone Number</td>
                             <td>:</td>
                             <td><?php  echo $phno; ?></td>
                         </tr>

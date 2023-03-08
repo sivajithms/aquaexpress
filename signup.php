@@ -223,11 +223,11 @@ body {
           <p> use your email for registration</p>
           <div class="input-group">
             <i class="fa-solid fa-user"></i>
-            <input type="text" class="user" name="name" placeholder="user" required/>
+            <input type="text" class="user" name="name" placeholder="user" required pattern="[A-Za-z]+"/>
           </div>
           <div class="input-group">
-            <i class="fa-regular fa-envelope"></i>
-            <input type="number" placeholder="age" name="age" class="email" required/>
+          <i class="fa-regular fa-calendar-alt"></i>
+            <input type="number" placeholder="age" name="age" class="age" required min="12"/>
           </div>
           <div class="input-group">
             <i class="fa-regular fa-envelope"></i>
@@ -235,8 +235,7 @@ body {
           </div>
           <div class="input-group">
             <i class="fa fa-phone" aria-hidden="true"></i>
-            <input type="phone number" placeholder="+91 xxxxxxxxxx" name="phno" class="phone number" required/>
-          </div>
+<input type="number" placeholder="+91 xxxxxxxxxx" name="phno" class="phone number" required pattern="\d{9,}" onKeyPress="if(this.value.length==10) return false;">          </div>
           <div class="input-group">
             <i class="fa-solid fa-lock"></i>
             <input type="password" name="psw" placeholder="password" required/>

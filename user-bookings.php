@@ -3,7 +3,7 @@ session_start();
 include './util/connection.php';
 
 if(!isset($_SESSION['user_id'])){
-    echo'<script>window.location.href="./index.php"</script>';
+    echo'<script>window.location.href="./userlogin.php"</script>';
   }else{
 $id=$_SESSION['user_id'];
 $query = "SELECT * FROM booking_table where user_id=$id";
@@ -17,24 +17,70 @@ $result = mysqli_query($conn, $query);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Booking Table</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 3%;
+        }
+
+        .table {
+            background-color: #fff;
+            margin-bottom: 5%;
+        }
+
+        th,
+        td {
+            text-align: center;
+            vertical-align: middle !important;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: #dee2e6;
+        }
+
+        .btn-back {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            margin-bottom: 2%;
+        }
+
+        .btn-back:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+
+    </style>
+
 </head>
-<style>
-    .main{
-        margin: 5%;
-    }
-</style>
+
 <body>
-    <div class="main">
-        <a href="./index.php" class="btn btn-primary">Back</a>
-    <table id="myTable-party" class="table table-bordered table-hover" cellspacing="0" width="100%">
+
+    <div class="container">
+        <a href="./index.php" class="btn btn-back text-white">Back</a>
+        <table id="myTable-party" class="table table-bordered table-hover" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th> <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
@@ -135,8 +181,10 @@ if(mysqli_num_rows($result) > 0){
     <?php
     }
 }else{
-echo"<p>No Booking Records</p>";
-}
+    
+    if(mysqli_num_rows($result) < 1){
+        echo "<tr><td colspan='7' align='center'>Zero bookings</td></tr>";
+    }}
          
             ?>
             
